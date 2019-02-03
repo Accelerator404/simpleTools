@@ -6,15 +6,15 @@ with open("input.dat", encoding='UTF-8') as source:
 mapA = {}
 for iterA in range(0, len(raw)):
     this = raw[iterA]
-    if iterA == len(raw) - 1 and this[0].isdigit():
+    if iterA == len(raw) - 1 and this[0:2].isdigit():
         mapA[this] = ""
         break
-    elif iterA == len(raw) - 1 and not this[0].isdigit():
+    elif iterA == len(raw) - 1 and not this[0:2].isdigit():
         break
     that = raw[iterA+1]
-    if not this[0].isdigit():
+    if not this[0:2].isdigit():
         continue
-    elif not that[0].isdigit():
+    elif not that[0:2].isdigit():
         mapA[this] = that
         iterA = iterA + 1
     else:
